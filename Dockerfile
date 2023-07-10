@@ -9,7 +9,7 @@ WORKDIR /app
 RUN set -eux; \
     apt-get update && \
     apt-get install --no-install-recommends -y mime-support git curl libcurl4-openssl-dev \
-      libssl-dev make g++ procps tzdata xmlsec1 gettext
+      libssl-dev make g++ tzdata xmlsec1 gettext
 
 COPY requirements.txt/ /app/scripts/
 COPY requirements.txt/ /app/scripts/
