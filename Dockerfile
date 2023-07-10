@@ -14,7 +14,7 @@ RUN set -eux; \
 COPY requirements.txt/ /app/scripts/
 COPY requirements.txt/ /app/scripts/
 
-RUN ./scripts/requirements.txt --production
+RUN /app/scripts/requirements.txt --production
 
 RUN apt-get remove --purge -y git libcurl4-openssl-dev libssl-dev make g++ && \
     apt-get autoremove -y && \
