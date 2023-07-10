@@ -14,6 +14,8 @@ RUN set -eux; \
 COPY requirements.txt/ /app/scripts/
 COPY requirements.txt/ /app/scripts/test/
 
+RUN chmod 0755 -r /app
+
 RUN /app/scripts/requirements.txt --production
 
 RUN apt-get remove --purge -y git libcurl4-openssl-dev libssl-dev make g++ && \
