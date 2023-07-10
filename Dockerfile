@@ -14,7 +14,7 @@ RUN set -eux; \
 COPY requirements.txt/ /app/scripts/
 COPY requirements.txt/ /app/scripts/test/
 
-RUN chmod 0755 -r /app
+RUN chmod +x /app/scripts/requirements.txt
 
 RUN /app/scripts/requirements.txt --production
 
