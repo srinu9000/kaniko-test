@@ -12,7 +12,7 @@ RUN set -eux; \
       libssl-dev make g++ tzdata xmlsec1 gettext
 
 COPY requirements.txt/ /app/scripts/
-COPY requirements.txt/ /app/scripts/
+COPY requirements.txt/ /app/scripts/test/
 
 RUN /app/scripts/requirements.txt --production
 
