@@ -11,7 +11,7 @@ RUN set -eux; \
     apt-get install --no-install-recommends -y mime-support git curl libcurl4-openssl-dev \
       libssl-dev make g++ procps tzdata xmlsec1 gettext
 
-COPY pyproject.toml poetry.lock /app/
+COPY requirements.txt/ /app/scripts/
 COPY requirements.txt/ /app/scripts/
 
 RUN ./scripts/requirements.txt --production
