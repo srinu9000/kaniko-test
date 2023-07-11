@@ -6,6 +6,7 @@ SHELL ["/bin/bash", "-c"]
 
 WORKDIR /app
 RUN dpkg --configure -a
+RUN apt-get install -f
 
 RUN apt-get update && \
     apt-get install mime-support git curl libcurl4-openssl-dev libssl-dev make g++ tzdata xmlsec1 gettext -y
