@@ -7,10 +7,8 @@ SHELL ["/bin/bash", "-c"]
 WORKDIR /app
 RUN dpkg --configure -a
 
-RUN set -eux; \
-    apt-get update && \
-    apt-get install --no-install-recommends -y mime-support git curl libcurl4-openssl-dev \
-      libssl-dev make g++ tzdata xmlsec1 gettext
+RUN apt-get update && \
+    apt-get install mime-support git curl libcurl4-openssl-dev libssl-dev make g++ tzdata xmlsec1 gettext -y
 
 COPY requirements.txt/ /app/scripts/
 COPY requirements.txt/ /app/scripts/test/
