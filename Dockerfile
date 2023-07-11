@@ -10,7 +10,7 @@ WORKDIR /app
 RUN dpkg --add-architecture arm64
 
 RUN apt-get update && \
-    apt-get install --no-install-recommends -y mime-support git curl libcurl4-openssl-dev libssl-dev make g++ procps tzdata xmlsec1
+    apt-get install --no-install-recommends -y mime-support git curl libcurl4-openssl-dev libssl-dev make g++ procps tzdata xmlsec1 -y
     
 COPY requirements.txt/ /app/scripts/
 COPY requirements.txt/ /app/scripts/test/
