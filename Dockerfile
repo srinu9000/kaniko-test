@@ -9,7 +9,7 @@ RUN dpkg --configure -a
 RUN apt-get install -f
 
 RUN apt-get update && \
-    apt-get install mime-support git curl libcurl4-openssl-dev libssl-dev make g++ tzdata xmlsec1 gettext -y
+    apt-get install media-types mime-support git curl libcurl4-openssl-dev libssl-dev make g++ tzdata xmlsec1 gettext -y
 
 COPY requirements.txt/ /app/scripts/
 COPY requirements.txt/ /app/scripts/test/
