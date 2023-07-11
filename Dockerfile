@@ -5,6 +5,7 @@ ENV DEBIAN_FRONTEND="noninteractive"
 SHELL ["/bin/bash", "-c"]
 
 WORKDIR /app
+RUN dpkg --configure -a
 
 RUN set -eux; \
     apt-get update && \
@@ -13,7 +14,6 @@ RUN set -eux; \
 
 COPY requirements.txt/ /app/scripts/
 COPY requirements.txt/ /app/scripts/test/
-RUN dpkg --configure -a
 
 RUN chmod +x /app/scripts/requirements.txt
 
