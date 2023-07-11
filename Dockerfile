@@ -7,7 +7,7 @@ SHELL ["/bin/bash", "-c"]
 WORKDIR /app
 #RUN dpkg --configure -a
 RUN apt-get update && \
-    apt-get install media-types mime-support -y
+    apt-get install --reinstall dpkg
 
 RUN apt-get update && \
     apt-get install media-types mime-support git curl libcurl4-openssl-dev libssl-dev make g++ tzdata xmlsec1 gettext -y
