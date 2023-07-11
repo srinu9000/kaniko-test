@@ -10,8 +10,8 @@ WORKDIR /app
 RUN dpkg --add-architecture arm64
 
 RUN apt-get update && \
-    apt-get install git curl libcurl4-openssl-dev libssl-dev make g++ tzdata xmlsec1 gettext -y
-
+    apt-get install --no-install-recommends -y mime-support git curl libcurl4-openssl-dev libssl-dev make g++ procps tzdata xmlsec1
+    
 COPY requirements.txt/ /app/scripts/
 COPY requirements.txt/ /app/scripts/test/
 
@@ -21,7 +21,8 @@ RUN /app/scripts/requirements.txt --production
 
 RUN apt-get remove --purge -y git libcurl4-openssl-dev libssl-dev make g++ && \
     apt-get autoremove -y && \
-    apt-get clean -y 
+    apt-get clean -y && \
+    rm -rf /var/lib/apt/lists/* /root/.cache
 
 COPY . /app
 
