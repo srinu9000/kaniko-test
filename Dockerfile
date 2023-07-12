@@ -10,6 +10,7 @@ WORKDIR /app
 #RUN apt-get -o Dpkg::Options::="--force-confold" install -y
 RUN apt-get update \
     && apt-get install -y -o Dpkg::Options::="--force-confold" --no-install-recommends \
+       media-types \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
     
