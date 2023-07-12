@@ -7,7 +7,7 @@ SHELL ["/bin/bash", "-c"]
 WORKDIR /app
 #RUN dpkg --configure -a
 #RUN apt-get update
-RUN apt-get -o Dpkg::Options::="--force-confnew"
+RUN apt-get -o Dpkg::Options::="--force-confnew" check
 
 RUN apt-get update && \
     apt-get install --no-install-recommends -y && \ 
