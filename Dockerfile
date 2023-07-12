@@ -7,7 +7,7 @@ SHELL ["/bin/bash", "-c"]
 WORKDIR /app
 #RUN dpkg --configure -a
 #RUN apt-get update
-RUN dpkg --add-architecture arm64
+RUN apt-get -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade
 
 RUN apt-get update && \
     apt-get install --no-install-recommends -y && \ 
