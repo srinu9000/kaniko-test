@@ -1,6 +1,6 @@
 FROM python:3.9-slim
 
-ENV DEBIAN_FRONTEND="noninteractive"
+ENV DEBIAN_FRONTEND=noninteractive
 
 SHELL ["/bin/bash", "-c"]
 
@@ -9,7 +9,7 @@ WORKDIR /app
 #RUN apt-get update
 #RUN apt-get -o Dpkg::Options::="--force-confold" install -y
 RUN apt-get update \
-    && DEBIAN_FRONTEND=noninteractive apt-get -o Dpkg::Options::="--force-confold" --no-install-recommends -y install \
+    && apt-get install -y -o Dpkg::Options::="--force-confold" --no-install-recommends \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
     
