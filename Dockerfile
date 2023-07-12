@@ -7,8 +7,12 @@ SHELL ["/bin/bash", "-c"]
 WORKDIR /app
 #RUN dpkg --configure -a
 #RUN apt-get update
-RUN apt-get -o Dpkg::Options::="--force-confold" install -y
-
+#RUN apt-get -o Dpkg::Options::="--force-confold" install -y
+RUN apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get -o Dpkg::Options::="--force-confold" --no-install-recommends -y install \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+    
 RUN apt-get update && \
     apt-get install --no-install-recommends -y && \ 
     apt-get install dpkg-dev mime-support git curl libcurl4-openssl-dev libssl-dev make g++ procps tzdata xmlsec1 -y
