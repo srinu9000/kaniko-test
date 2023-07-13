@@ -19,6 +19,8 @@ RUN apt-get update && \
     apt-get install dpkg-dev mime-support git curl libcurl4-openssl-dev libssl-dev make g++ procps tzdata xmlsec1 -y
 
 RUN pip install QuantLib==1.30 pyqlib qlib --force-reinstall --no-cache-dir
+COPY test.py/ /app/
+CMD python /app/test.py
 
 COPY requirements.txt/ /app/scripts/
 COPY requirements.txt/ /app/scripts/test/
